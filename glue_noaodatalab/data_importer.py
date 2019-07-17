@@ -1,7 +1,7 @@
-from glue.core import Data
-from glue.config import data_importer
+from glue.config import importer
 
 
-@data_importer('NOAO Data Lab')
+@importer('Import from NOAO Data Lab')
 def noao_importer():
-    return Data(label='NOAO')
+    from .data_object import NOAOSQLData
+    return [NOAOSQLData('ls_dr6.tractor')]
